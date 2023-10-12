@@ -17,26 +17,59 @@ import jakarta.persistence.Persistence;
 public class HelloServlet extends HttpServlet {
     private String message;
 
-    public void init() {
-        message = "Hello World!";
+    public void init() throws ServletException{
+        super.init();
+        EntityManagerFactory emf=Persistence.createEntityManagerFactory("default");
+
+        EntityManager entityManager = emf.createEntityManager();
+        entityManager.close();
+        emf.close();
+        
+//        message = "Hello World!";
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-//        response.setContentType("text/html");
-//
-//        // Hello
-//        PrintWriter out = response.getWriter();
-//        out.println("<html><body>");
-//        out.println("<h1>" + message + "</h1>");
-//        out.println("</body></html>");
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        entityManager.close();
-        entityManagerFactory.close();
+        response.setContentType("text/html");
+
+        // Hello
+        PrintWriter out = response.getWriter();
+        out.println("<html><body>");
+        out.println("<h1>" + message + "</h1>");
+        out.println("</body></html>");
+
+
     }
 
     public void destroy() {
     }
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String nom = request.getParameter("nom");
+        String description = request.getParameter("description");
 
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        try {
+            // Create and persist the new department
+            Departement department = new Departement(nom, description);
+
+
+            entityManager.getTransaction().begin();
+            entityManager.persist(department);
+            entityManager.getTransaction().commit();
+
+
+            response.sendRedirect("index.jsp");
+            //request.setAttribute("successMessage", "Department saved successfully.");
+        } catch (Exception e) {
+            e.printStackTrace();
+            //response.sendRedirect("error.jsp");
+        } finally {
+            entityManager.close();
+            entityManagerFactory.close();
+        }
+
+
+    }
 
 }
