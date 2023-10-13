@@ -35,3 +35,4 @@ L'évaluation comprendra une présentation du projet, une revue de code, des que
 - Qualité du code et structure du projet.
 - Architecture JEE bien conçue et configuration Web.
 - Documentation pertinente.
+https://www.canva.com/design/DAFxE7En3aI/K01IZ6AnyaCNnVrNrzmu-Q/edit?utm_content=DAFxE7En3aI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
