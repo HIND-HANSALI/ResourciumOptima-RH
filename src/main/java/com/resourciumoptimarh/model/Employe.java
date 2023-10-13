@@ -18,7 +18,7 @@ public class Employe {
     @Column(name = "email", nullable = false, unique = true, length = 100)
     private String email;
 
-    @Column(name = "mot_de_passe", nullable = false, length = 100)
+    @Column(name = "mot_de_passe",  length = 100)
     private String motDePasse;
 
     @Column(name = "poste", length = 50)
@@ -42,6 +42,12 @@ public class Employe {
         this.poste = poste;
         this.dateEmbauche = dateEmbauche;
         this.departement = departement;
+    }
+
+    public Employe(String nom, String prenom, String email) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
     }
 
     // Getter and Setter methods

@@ -25,12 +25,12 @@ public class HelloServlet extends HttpServlet {
         entityManager.close();
         emf.close();
         
-//        message = "Hello World!";
+
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
-
+        message = "Hello World!";
         // Hello
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
@@ -50,6 +50,7 @@ public class HelloServlet extends HttpServlet {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         try {
+
             // Create and persist the new department
             Departement department = new Departement(nom, description);
 
