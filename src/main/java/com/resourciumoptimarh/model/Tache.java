@@ -23,6 +23,10 @@ public class Tache{
 
     private int priorite;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
 
     @Enumerated(EnumType.STRING)
     private Statut statut;
