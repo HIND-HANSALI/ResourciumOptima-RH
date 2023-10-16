@@ -59,7 +59,6 @@ public class HelloServlet extends HttpServlet {
             entityManager.persist(department);
             entityManager.getTransaction().commit();
 
-
             response.sendRedirect("index.jsp");
             //request.setAttribute("successMessage", "Department saved successfully.");
         } catch (Exception e) {
