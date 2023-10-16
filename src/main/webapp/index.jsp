@@ -10,6 +10,8 @@
 <br/>
 <a href="hello-servlet">Hello Servlet</a><br>
 <a href="Test">Hello Test</a>
+<a href="Register">Register</a>
+<a href="Login">Login/a>
 
 
 
