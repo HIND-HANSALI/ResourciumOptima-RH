@@ -27,22 +27,19 @@ public class Equipement {
     @Column(name = "date_maintenance")
     private Date dateMaintenance;
 
-    @Column(name = "etat")
-    private String etat;
+    @Enumerated(EnumType.STRING)
+    private Etat etat;
 
-    @ManyToOne
-    private Departement departement;
 
     // Constructors
     public Equipement() {}
 
-    public Equipement(String nom, String type, Date dateAchat, Date dateMaintenance, String etat, Departement departement) {
+    public Equipement(String nom, String type, Date dateAchat, Date dateMaintenance, Etat etat) {
         this.nom = nom;
         this.type = type;
         this.dateAchat = dateAchat;
         this.dateMaintenance = dateMaintenance;
         this.etat = etat;
-        this.departement = departement;
     }
 
     // Getter and Setter methods
@@ -86,19 +83,19 @@ public class Equipement {
         this.dateMaintenance = dateMaintenance;
     }
 
-    public String getEtat() {
+    public Etat getEtat() {
         return etat;
     }
 
-    public void setEtat(String etat) {
+    public void setEtat(Etat etat) {
         this.etat = etat;
     }
 
-    public Departement getDepartement() {
-        return departement;
-    }
+    //    public Departement getDepartement() {
+//        return departement;
+//    }
 
-    public void setDepartement(Departement departement) {
-        this.departement = departement;
-    }
+//    public void setDepartement(Departement departement) {
+//        this.departement = departement;
+//    }
 }
