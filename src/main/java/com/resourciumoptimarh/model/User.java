@@ -30,13 +30,13 @@ public class User {
     @Column(name = "date_embauche")
     private Date dateEmbauche;
     public User(){}
-    public User(String nom, String prenom, String email, String motDePasse, Role role, Date dateEmbauche) {
+    public User(String nom, String prenom, String email, String motDePasse, Role role) {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.motDePasse = motDePasse;
-        this.role = role;
-        this.dateEmbauche = dateEmbauche;
+        this.role =role;
+//        this.dateEmbauche = dateEmbauche;
     }
 
     public int getId() {
