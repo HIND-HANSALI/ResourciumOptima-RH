@@ -34,13 +34,17 @@ public class Login extends HttpServlet {
                 response.sendRedirect("dashboard.jsp");
             } else {
                 // Authentication failed: Password does not match
-              
+                //response.sendRedirect("/Login?error=invalid_password");
+                //response.sendRedirect("login.jsp");
                 System.out.println(getUserByEmail(email) );
                 response.sendRedirect("login.jsp?error=invalid_password");
             }
         } else {
             // Authentication failed: User not found
-
+            //request.setAttribute("error", "user_not_found");
+            //request.getRequestDispatcher("login.jsp").forward(request, response);
+            //response.sendRedirect("register.jsp");
+            System.out.println(getUserByEmail(email) );
             response.sendRedirect("login.jsp?error=user_not_found");
 
         }

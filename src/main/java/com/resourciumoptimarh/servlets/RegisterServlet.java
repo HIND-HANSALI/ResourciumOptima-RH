@@ -14,7 +14,11 @@ import java.io.IOException;
 
 @WebServlet(name = "Register", value = "/Register")
 public class Register extends HttpServlet {
-
+   private EntityManagerFactory emf;
+    @Override
+    public void init() throws ServletException {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
+    }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
@@ -26,21 +30,19 @@ public class Register extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nom = request.getParameter("nom");
-        String motDePasse = request.getParameter("motDePasse");
         String prenom = request.getParameter("prenom");
-
         String email = request.getParameter("email");
+        String motDePasse = request.getParameter("motDePasse");
 
         EntityManagerFactory emf= Persistence.createEntityManagerFactory("default");
         EntityManager entityManager = emf.createEntityManager();
 
-        Role role = entityManager.createQuery("SELECT r FROM Role r WHERE r.role = 'Employee'", Role.class)
-                .getSingleResult();
+        Role role = entityManager.find(Role.class, 1);
+
         if (role == null) {
-            //throw new RoleNotFoundException("Role not found");
-            String errorMessage = "Role not found: Defaulting to a different role.";
-            System.err.println(errorMessage);
+            System.out.println("Error: Role 'Employee' not found.");
         }
+
         User newUser = new User(nom, prenom, email, motDePasse,role);
 
         entityManager.getTransaction().begin();
@@ -52,5 +54,16 @@ public class Register extends HttpServlet {
 //        session.setAttribute("email", email);
         response.sendRedirect("login.jsp");
 
+    }
+    //        Role role = entityManager.createQuery("SELECT r FROM Role r WHERE r.role = 'Employee'", Role.class)
+//                .getSingleResult();
+//        if (role == null) {
+//            //throw new RoleNotFoundException("Role not found");
+//            String errorMessage = "Role not found: Defaulting to a different role.";
+//            System.err.println(errorMessage);
+//        }
+    @Override
+    public void destroy() {
+        emf.close();
     }
 }
