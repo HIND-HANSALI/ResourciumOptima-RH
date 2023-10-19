@@ -29,12 +29,12 @@
                         <div class="col-lg-10 col-xl-7 mx-auto">
                             <h3 class="display-6">Create Account</h3>
                             <p class="text-muted mb-4">Ready To Login </p>
-                            <form>
+                            <form action="Login" method="post">
                                 <div class="form-group mb-4">
-                                    <input id="inputEmail" type="email" placeholder="Email address" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                    <input id="inputEmail" type="email" placeholder="Email address" name="email" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
                                 </div>
                                 <div class="form-group mb-4">
-                                    <input id="inputPassword" type="password" placeholder="Password" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                                    <input id="inputPassword" type="password" placeholder="enter Password" name="motDePasse" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
                                 </div>
 
 

@@ -9,9 +9,12 @@
 </h1>
 <br/>
 <a href="hello-servlet">Hello Servlet</a><br>
-<a href="Test">Hello Test</a>
-<a href="Register">Register</a>
-<a href="Login">Login/a>
+<a href="Test">Hello Test</a><br>
+<a href="Register">Register</a><br>
+<a href="Login">Login</a><br>
+<a href="Equipement">Les Equipements</a>
+
+
 
 
 
