@@ -1,5 +1,8 @@
 <%--<%@ page import="Entity.Category" %>--%>
-<%@ page import="java.util.List" %><%--
+<%--<%@ page import="com.resourciumoptimarh.model.Equipement" %>--%>
+
+<%@ page import="java.util.List" %>
+<%--
   Created by IntelliJ IDEA.
   User: pc
   Date: 17/10/2023
@@ -7,7 +10,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html
         lang="en"
         class="light-style layout-navbar-fixed layout-menu-fixed layout-compact"
@@ -281,22 +284,28 @@
                            aria-describedby="DataTables_Table_0_info">
                       <thead>
                       <tr>
-                        <th></th>
-                        <th></th>
+
                         <th>id</th>
                         <th>Name</th>
+                        <th>Etat</th>
+                        <th>Type</th>
+                        <th>Date Achat</th>
+                        <th>Date Maintenance</th>
                         <th aria-controls="DataTables_Table_0">Action</th>
                       </tr>
                       </thead>
                       <tbody>
-<%--                        <c:forEach items="${categories}" var="category">--%>
+                        <c:forEach items="${equipements}" var="equipement">
                           <tr>
-                            <td></td>
-                            <td></td>
-                            <td>hind</td>
-                            <td>hind</td>
-<%--                            <td><c:out value="${category.id}" /></td>--%>
-<%--                            <td><c:out value="${category.name}" /></td>--%>
+                            <td><c:out value="${equipement.id}" /></td>
+                            <td><c:out value="${equipement.nom}" /></td>
+                            <td><c:out value="${equipement.etat}" /></td>
+
+                            <td><c:out value="${equipement.type}" /></td>
+                            <td><c:out value="${equipement.dateAchat}" /></td>
+                            <td><c:out value="${equipement.dateMaintenance}" /></td>
+
+
                             <td>
                               <div class="dropdown">
                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
@@ -314,7 +323,7 @@
                               </div>
                             </td>
                           </tr>
-<%--                        </c:forEach>--%>
+                        </c:forEach>
                       </tbody>
                     </table>
                   </div>
