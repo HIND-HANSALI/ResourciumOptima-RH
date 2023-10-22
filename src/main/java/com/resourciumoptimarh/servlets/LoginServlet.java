@@ -33,11 +33,11 @@ public class LoginServlet extends HttpServlet {
         User user1 = userService.CheckExistenceUserByEmail(user);
 
         if (user1!=null) {
-//            request.getSession(true).setAttribute("user", user1.get());
+            request.getSession(true).setAttribute("user", user1);
             request.setAttribute("success", "You are logged in successfully");
             this.getServletContext().getRequestDispatcher("/list-equipements.jsp").forward(request, response);
         } else {
-            request.setAttribute("validationEmail", "Email Or Password Not exists.");
+            request.setAttribute("validationEmail", "Invalid email or password. Please try again.");
             request.getRequestDispatcher("/login.jsp").forward(request, response);
         }
 
