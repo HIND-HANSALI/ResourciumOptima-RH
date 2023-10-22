@@ -34,12 +34,12 @@ public class User {
 //        this.role = new Role(); // Set the default role when creating a new User
 //        this.role.setId(1);
     }
-    public User(String nom, String prenom, String email, String motDePasse) {
+    public User(String nom, String prenom, String email, String motDePasse,Role role) {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.motDePasse = motDePasse;
-//        this.role =role;
+        this.role =role;
 //        this.dateEmbauche = dateEmbauche;
     }
     public User( String email, String motDePasse){

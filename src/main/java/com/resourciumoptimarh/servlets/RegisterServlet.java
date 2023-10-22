@@ -3,6 +3,7 @@ package com.resourciumoptimarh.servlets;
 import com.resourciumoptimarh.model.Role;
 import com.resourciumoptimarh.model.User;
 
+import com.resourciumoptimarh.services.RoleService;
 import com.resourciumoptimarh.services.UserService;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
@@ -22,6 +23,7 @@ public class RegisterServlet extends HttpServlet {
 
     @Inject
     UserService userService=new UserService();
+    RoleService roleService=new RoleService();
    private EntityManagerFactory emf;
 
 
@@ -44,10 +46,11 @@ public class RegisterServlet extends HttpServlet {
 
 //        Role role = entityManager.find(Role.class, 1);
 
+        Role role = roleService.getRoleByName("Employee");
         String message = "";
         String hashed = hashPassword(motDePasse);
-        User savedUser = userService.save(new User(nom, prenom, email, hashed));
-        System.out.println(savedUser.getEmail());
+        User savedUser = userService.save(new User(nom, prenom, email, hashed,role));
+//        System.out.println(savedUser.getEmail());
 
         if (savedUser!=null) {
             message = "User successfully registered.";
@@ -56,7 +59,7 @@ public class RegisterServlet extends HttpServlet {
         } else {
             message = "Email already exists. Please use a different email.";
             request.setAttribute("registrationMessage", message);
-            request.getRequestDispatcher("/registration.jsp").forward(request, response);
+            request.getRequestDispatcher("/register.jsp").forward(request, response);
         }
 
     }
