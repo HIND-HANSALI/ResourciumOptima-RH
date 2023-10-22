@@ -23,20 +23,28 @@ public class User {
     private String motDePasse;
 
     @ManyToOne
-    @JoinColumn(name = "role_id")
-    private Role role;
+
+    @JoinColumn(name = "role_id",columnDefinition = "integer default 1")
+    private Role role  ;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "date_embauche")
     private Date dateEmbauche;
-    public User(){}
-    public User(String nom, String prenom, String email, String motDePasse, Role role) {
+    public User(){
+//        this.role = new Role(); // Set the default role when creating a new User
+//        this.role.setId(1);
+    }
+    public User(String nom, String prenom, String email, String motDePasse) {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.motDePasse = motDePasse;
-        this.role =role;
+//        this.role =role;
 //        this.dateEmbauche = dateEmbauche;
+    }
+    public User( String email, String motDePasse){
+        this.email = email;
+        this.motDePasse = motDePasse;
     }
 
     public int getId() {
@@ -84,8 +92,10 @@ public class User {
     }
 
     public void setRole(Role role) {
+
         this.role = role;
     }
+
 
     public Date getDateEmbauche() {
         return dateEmbauche;
