@@ -2,8 +2,11 @@
 <%--<%@ page import="com.resourciumoptimarh.model.Equipement" %>--%>
 
 <%@ page import="java.util.List" %>
+<%@ page import="com.resourciumoptimarh.model.Etat" %>
+<%--<%@ page import="jakarta.jws.soap.SOAPBinding" %>--%>
+<%@ page import="com.resourciumoptimarh.model.User" %>
 <%--<%--%>
-<%--  Use user = null;--%>
+<%--  SOAPBinding.Use user = null;--%>
 <%--  if (session.getAttribute("user") != null) {--%>
 <%--    Object userObj = session.getAttribute("user");--%>
 <%--    if (userObj instanceof User) {--%>
@@ -324,14 +327,14 @@
                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
                                         data-bs-toggle="dropdown"><i class="ti ti-dots-vertical"></i></button>
                                 <div class="dropdown-menu">
-<%--                                  <a class="dropdown-item" href="<c:url value='/categories'>--%>
-<%--                                        <c:param name='action' value='edit' />--%>
-<%--                                        <c:param name='id' value='${category.id}' />--%>
-<%--                                      </c:url>"><i class="ti ti-pencil me-1"></i>Edit</a>--%>
-<%--                                  <a class="dropdown-item" href="<c:url value='/categories'>--%>
-<%--                                        <c:param name='action' value='delete' />--%>
-<%--                                        <c:param name='id' value='${category.id}' />--%>
-<%--                                      </c:url>"><i class="ti ti-trash me-1"></i>Delete</a>--%>
+                                  <a class="dropdown-item" href="<c:url value='/Equipement'>
+                                        <c:param name='action' value='edit' />
+                                        <c:param name='id' value='${equipement.id}' />
+                                      </c:url>"><i class="ti ti-pencil me-1"></i>Edit</a>
+                                  <a class="dropdown-item" href="<c:url value='/Equipement'>
+                                        <c:param name='action' value='delete' />
+                                        <c:param name='id' value='${equipement.id}' />
+                                      </c:url>"><i class="ti ti-trash me-1"></i>Delete</a>
                                 </div>
                               </div>
                             </td>

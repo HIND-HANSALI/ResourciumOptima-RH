@@ -125,12 +125,12 @@
                     </a>
                     <ul class="menu-sub">
                         <li class="menu-item">
-                            <a href="/F34TUR3S_V1_war/categories" class="menu-link">
+                            <a href="list-equipements.jsp" class="menu-link">
                                 <div data-i18n="List Equipements">List Equipements</div>
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a href="add-new-category.jst" class="menu-link">
+                            <a href="add-new-equipement.jsp" class="menu-link">
                                 <div data-i18n="Add Equipement">Add Equipement</div>
                             </a>
                         </li>
@@ -246,23 +246,45 @@
                         <div class="col-12">
                             <div class="card">
                                 <h5 class="card-header">FormValidation</h5>
-                                <div class="card-body">
-                                    <form id="formValidationExamples" class="row g-3" action="Equipements" method="post">
-                                        <div class="col-12">
-                                            <h6>1. Account Details</h6>
-                                            <hr class="mt-0" />
-                                        </div>
+                                    <div class="card-body">
+                                        <form id="formValidationExamples" class="row g-3" action="Equipement" method="post">
+                                            <div class="col-12">
+                                                <h6>1. Edit Equipement Details</h6>
+                                                <hr class="mt-0" />
+                                            </div>
 
-                                        <div class="col-md-6">
-                                            <label class="form-label" for="categoryName">Name</label>
-                                            <input
-                                                    type="text"
-                                                    id="categoryName"
-                                                    class="form-control"
-                                                    placeholder="Enter category name"
-                                                    name="categoryName"
-<%--                                                    value="${(not empty category) ? category.name : ''}"/>--%>
-                                        </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label" for="equipementName">Name</label>
+                                                <input type="text" id="equipementName" class="form-control"
+                                                       placeholder="Enter Equipement name" name="equipementName" value="${(not empty equipement) ? equipement.nom : ''}"/>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label" for="equipementType">Type</label>
+                                                <input type="text" id="equipementType" class="form-control"
+                                                       placeholder="Enter Equipement Type" name="equipementType" value="${(not empty equipement) ? equipement.type : ''}"/>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label class="form-label" for="equipementEtat">Etat</label>
+
+                                            <select id="equipementEtat" class="form-control" name="equipementEtat">
+                                                <option value="Disponible" ${(not empty equipement && equipement.etat == 'Disponible') ? 'selected' : ''}>Disponible</option>
+                                                <option value="Maintenance" ${(not empty equipement && equipement.etat == 'Maintenance') ? 'selected' : ''}>Maintenance</option>
+                                                <option value="Disponible" ${(not empty equipement && equipement.etat == 'EnPanne') ? 'selected' : ''}>EnPanne</option>
+                                            </select>
+                                            </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="dateAchat">Date Achat</label>
+                                        <input type="date" id="dateAchat" class="form-control"
+                                               placeholder="Enter date Achat" name="dateAchat" value="${(not empty equipement) ? equipement.dateAchat: ''}"/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="dateMaintenance">Date Maintenance</label>
+                                        <input type="date" id="dateMaintenance" class="form-control"
+                                               placeholder="Enter date Maintenance" name="dateMaintenance"
+                                               value="${(not empty equipement) ? equipement.dateMaintenance: ''}"/>
+                                    </div>
                                         <div class="col-12">
 <%--                                            <input type="hidden" name="categoryId" value="${(not empty category) ? category.id : ''}">--%>
                                             <button type="submit" name="action" value="update" class="btn btn-primary">Update</button>

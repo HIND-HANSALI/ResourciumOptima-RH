@@ -21,21 +21,37 @@ public class EquipementServlet extends HttpServlet {
     EquipementService equipementService=new EquipementService();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
-//        System.out.println("hiii");
-            Etat[] etatValues = Etat.values();
-            request.setAttribute("etatValues", etatValues);
-            for (Etat etat : etatValues) {
-                System.out.println(etat); // This will print each enum value
-            }
+        String action = request.getParameter("action");
+
+        Etat[] etatValues = Etat.values();
+        request.setAttribute("etatValues", etatValues);
+        for (Etat etat : etatValues) {
+            System.out.println(etat); // This will print each enum value
+        }
+
+        if (action == null) {
+            List<Equipement> equipements = equipementService.getAllEquipements();
+
+            request.setAttribute("equipements", equipements);
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/list-equipements.jsp");
+            dispatcher.forward(request, response);
 
 
-        List<Equipement> equipements= equipementService.getAllEquipements();
+        }else if (action.equals("edit")) {
 
-        request.setAttribute("equipements",equipements);
+            int equipementId = Integer.parseInt(request.getParameter("id"));
+            Equipement equipement = equipementService.getEquipementById(equipementId);
+            request.setAttribute("equipement", equipement);
+            request.getRequestDispatcher("/update-equipement.jsp").forward(request, response);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/list-equipements.jsp");
-        dispatcher.forward(request,response);
+        }
+
+
+
+
+
+
 //        request.getRequestDispatcher("/list-equipements.jsp").forward(request, response);
     }
 
@@ -68,6 +84,41 @@ public class EquipementServlet extends HttpServlet {
             System.out.println(newEquipement);
             equipementService.createEquipement(newEquipement);
         response.sendRedirect(request.getContextPath() + "/Equipement");
+
+        }  else if ("update".equals(action)) {
+
+            int equipementId = Integer.parseInt(request.getParameter("id"));
+//            Equipement equipement1 = new Equipement();
+            Equipement equipement1 =  equipementService.getEquipementById(equipementId);
+            System.out.println(equipement1.getNom());
+
+            String equipementName = request.getParameter("equipementName");
+            String equipementType= request.getParameter("equipementType");
+            String dateAchatString = request.getParameter("dateAchat");
+            String dateMaintenanceString = request.getParameter("dateMaintenance");
+            String equipementEtat = request.getParameter("equipementEtat");
+            Etat equipementEtatEnum = Etat.valueOf(equipementEtat);
+
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            Date dateAchat=null;
+            Date dateMaintenance=null;
+            try {
+                dateAchat = dateFormat.parse(dateAchatString);
+                dateMaintenance = dateFormat.parse(dateMaintenanceString);
+
+            } catch (ParseException e) {
+
+                e.printStackTrace();
+            }
+//            equipement1 = new Equipement(equipementName,equipementType,dateAchat,dateMaintenance,equipementEtatEnum);
+                equipement1.setNom(equipementName);
+                equipement1.setEtat(equipementEtatEnum);
+                equipement1.setNom(equipementType);
+                equipement1.setDateAchat(dateAchat);
+                equipement1.setDateMaintenance(dateMaintenance);
+
+            equipementService.updateEquipement(equipement1);
+            response.sendRedirect(request.getContextPath() + "/Equipement");
 
         }
 
