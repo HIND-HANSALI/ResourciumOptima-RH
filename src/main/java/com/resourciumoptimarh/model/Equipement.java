@@ -7,6 +7,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "equipement")
+
 public class Equipement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -97,7 +98,18 @@ public class Equipement {
         this.etat = etat;
     }
 
-    //    public Departement getDepartement() {
+    @Override
+    public String toString() {
+        return "Equipement{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", type='" + type + '\'' +
+                ", dateAchat=" + dateAchat +
+                ", dateMaintenance=" + dateMaintenance +
+                ", etat=" + etat +
+                '}';
+    }
+//    public Departement getDepartement() {
 //        return departement;
 //    }
 

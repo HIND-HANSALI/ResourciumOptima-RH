@@ -286,7 +286,7 @@
                                                value="${(not empty equipement) ? equipement.dateMaintenance: ''}"/>
                                     </div>
                                         <div class="col-12">
-<%--                                            <input type="hidden" name="categoryId" value="${(not empty category) ? category.id : ''}">--%>
+                                            <input type="hidden" name="equipementId" value="${(not empty equipement) ? equipement.id : ''}">
                                             <button type="submit" name="action" value="update" class="btn btn-primary">Update</button>
                                         </div>
                                     </form>

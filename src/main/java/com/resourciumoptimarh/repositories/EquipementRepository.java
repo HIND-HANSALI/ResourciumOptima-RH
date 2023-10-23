@@ -47,7 +47,9 @@ public class EquipementRepository {
             entityManager.getTransaction().begin();
             entityManager.merge(equipement);
             entityManager.getTransaction().commit();
-        } finally {
+        }catch (Exception e){
+            e.getStackTrace();
+        }finally {
             entityManager.close();
         }
     }

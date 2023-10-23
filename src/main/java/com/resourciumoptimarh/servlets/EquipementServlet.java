@@ -45,10 +45,13 @@ public class EquipementServlet extends HttpServlet {
             request.setAttribute("equipement", equipement);
             request.getRequestDispatcher("/update-equipement.jsp").forward(request, response);
 
-        }
+        }else if (action.equals("delete")) {
+        // Delete the equipement by id
+            int equipementId = Integer.parseInt(request.getParameter("id"));
 
-
-
+            equipementService.deleteEquipement(equipementId);
+        response.sendRedirect(request.getContextPath() + "/Equipement");
+    }
 
 
 
@@ -85,9 +88,10 @@ public class EquipementServlet extends HttpServlet {
             equipementService.createEquipement(newEquipement);
         response.sendRedirect(request.getContextPath() + "/Equipement");
 
-        }  else if ("update".equals(action)) {
+        } else if ("update".equals(action)) {
 
-            int equipementId = Integer.parseInt(request.getParameter("id"));
+            int equipementId = Integer.parseInt(request.getParameter("equipementId"));
+            System.out.println(equipementId);
 //            Equipement equipement1 = new Equipement();
             Equipement equipement1 =  equipementService.getEquipementById(equipementId);
             System.out.println(equipement1.getNom());
@@ -113,10 +117,10 @@ public class EquipementServlet extends HttpServlet {
 //            equipement1 = new Equipement(equipementName,equipementType,dateAchat,dateMaintenance,equipementEtatEnum);
                 equipement1.setNom(equipementName);
                 equipement1.setEtat(equipementEtatEnum);
-                equipement1.setNom(equipementType);
+                equipement1.setType(equipementType);
                 equipement1.setDateAchat(dateAchat);
                 equipement1.setDateMaintenance(dateMaintenance);
-
+//            System.out.println(equipement1.toString());
             equipementService.updateEquipement(equipement1);
             response.sendRedirect(request.getContextPath() + "/Equipement");
 

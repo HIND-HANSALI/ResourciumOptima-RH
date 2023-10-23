@@ -258,15 +258,11 @@
                                             <input type="text" id="equipementName" class="form-control"
                                                     placeholder="Enter Equipement name" name="equipementName"/>
                                         </div>
-<%--                                        <div class="col-md-6">--%>
-<%--                                            <label class="form-label" for="equipementEtat">Etat</label>--%>
-<%--                                            <input type="text" id="equipementEtat" class="form-control"--%>
-<%--                                                   placeholder="Enter Equipement Etat" name="equipementEtat"/>--%>
-<%--                                        </div>--%>
-                                        <div class="col-md-6">
-                                            <label class="form-label" for="equipementType">Type</label>
-                                            <input type="text" id="equipementType" class="form-control"
-                                                   placeholder="Enter Equipement Type" name="equipementType"/>
+
+                                       <div class="col-md-6">
+                                           <label class="form-label" for="equipementType">Type</label>
+                                          <input type="text" id="equipementType" class="form-control"
+                                                  placeholder="Enter Equipement Type" name="equipementType"/>
                                         </div>
                                         <div class="col-md-6">
                                         <label class="form-label" for="equipementEtat">Etat</label>
