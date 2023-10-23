@@ -33,6 +33,12 @@ public class Equipement {
 
     // Constructors
     public Equipement() {}
+    public Equipement(String nom, String type, Date dateAchat,Date dateMaintenance){
+        this.nom = nom;
+        this.type = type;
+        this.dateAchat = dateAchat;
+        this.dateMaintenance = dateMaintenance;
+    }
 
     public Equipement(String nom, String type, Date dateAchat, Date dateMaintenance, Etat etat) {
         this.nom = nom;

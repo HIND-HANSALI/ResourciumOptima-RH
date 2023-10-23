@@ -247,21 +247,53 @@
                             <div class="card">
                                 <h5 class="card-header">FormValidation</h5>
                                 <div class="card-body">
-                                    <form id="formValidationExamples" class="row g-3" action="categories" method="post">
+                                    <form id="formValidationExamples" class="row g-3" action="Equipement" method="post">
                                         <div class="col-12">
-                                            <h6>1. Account Details</h6>
+                                            <h6>1. Equipement Details</h6>
                                             <hr class="mt-0" />
                                         </div>
 
                                         <div class="col-md-6">
-                                            <label class="form-label" for="categoryName">Name</label>
-                                            <input
-                                                    type="text"
-                                                    id="categoryName"
-                                                    class="form-control"
-                                                    placeholder="Enter category name"
-                                                    name="categoryName"/>
+                                            <label class="form-label" for="equipementName">Name</label>
+                                            <input type="text" id="equipementName" class="form-control"
+                                                    placeholder="Enter Equipement name" name="equipementName"/>
                                         </div>
+<%--                                        <div class="col-md-6">--%>
+<%--                                            <label class="form-label" for="equipementEtat">Etat</label>--%>
+<%--                                            <input type="text" id="equipementEtat" class="form-control"--%>
+<%--                                                   placeholder="Enter Equipement Etat" name="equipementEtat"/>--%>
+<%--                                        </div>--%>
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="equipementType">Type</label>
+                                            <input type="text" id="equipementType" class="form-control"
+                                                   placeholder="Enter Equipement Type" name="equipementType"/>
+                                        </div>
+                                        <div class="col-md-6">
+                                        <label class="form-label" for="equipementEtat">Etat</label>
+<%--                                        <select id="equipementEtat" class="form-control" name="equipementEtat">--%>
+<%--                                            <c:forEach var="etat" items="${etatValues}">--%>
+<%--                                                <option value="${etat}">${etat}</option>--%>
+<%--                                            </c:forEach>--%>
+<%--                                        </select>--%>
+                                        <select id="equipementEtat" class="form-control" name="equipementEtat">
+                                            <option value="Disponible">Disponible</option>
+                                            <option value="Maintenance">Maintenance</option>
+                                            <option value="Disponible">EnPanne</option>
+                                        </select>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="dateAchat">Date Achat</label>
+                                            <input type="date" id="dateAchat" class="form-control"
+                                                   placeholder="Enter date Achat" name="dateAchat"/>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label" for="dateMaintenance">Date Maintenance</label>
+                                            <input type="date" id="dateMaintenance" class="form-control"
+                                                   placeholder="Enter date Maintenance" name="dateMaintenance"/>
+                                        </div>
+
+
                                         <div class="col-12">
                                             <button type="submit" name="action" value="create" class="btn btn-primary">Submit</button>
                                         </div>

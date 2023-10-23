@@ -2,6 +2,15 @@
 <%--<%@ page import="com.resourciumoptimarh.model.Equipement" %>--%>
 
 <%@ page import="java.util.List" %>
+<%--<%--%>
+<%--  Use user = null;--%>
+<%--  if (session.getAttribute("user") != null) {--%>
+<%--    Object userObj = session.getAttribute("user");--%>
+<%--    if (userObj instanceof User) {--%>
+<%--      user = (User) userObj;--%>
+<%--    }--%>
+<%--  }--%>
+<%--%>--%>
 <%--
   Created by IntelliJ IDEA.
   User: pc
@@ -193,7 +202,11 @@
                         </div>
                       </div>
                       <div class="flex-grow-1">
-                        <span class="fw-medium d-block">John Doe</span>
+                        <span class="fw-medium d-block">HIND
+                          <c:if test="${not empty user}">
+                            ${user.nom}
+                          </c:if>
+                        </span>
                         <small class="text-muted">Admin</small>
                       </div>
                     </div>
