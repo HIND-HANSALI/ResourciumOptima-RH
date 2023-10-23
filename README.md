@@ -38,3 +38,5 @@ L'évaluation comprendra une présentation du projet, une revue de code, des que
 https://www.canva.com/design/DAFxE7En3aI/K01IZ6AnyaCNnVrNrzmu-Q/edit?utm_content=DAFxE7En3aI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 Figma File :
 https://www.figma.com/file/ofo9p6ZxttCoDR8eoI1Vs4/Untitled?type=design&node-id=3%3A156&mode=design&t=owiLejKiE1EuAx8z-1
+Conception UML:
+https://lucid.app/lucidchart/f3a95128-741e-4cbb-bac7-86c900d22d0a/edit?viewport_loc=-1812%2C-136%2C2960%2C1344%2C0_0&invitationId=inv_508a87f4-0811-4490-8a55-2e2ed58e7527
