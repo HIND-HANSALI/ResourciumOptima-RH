@@ -36,3 +36,5 @@ L'évaluation comprendra une présentation du projet, une revue de code, des que
 - Architecture JEE bien conçue et configuration Web.
 - Documentation pertinente.
 https://www.canva.com/design/DAFxE7En3aI/K01IZ6AnyaCNnVrNrzmu-Q/edit?utm_content=DAFxE7En3aI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+Figma File :
+https://www.figma.com/file/ofo9p6ZxttCoDR8eoI1Vs4/Untitled?type=design&node-id=3%3A156&mode=design&t=owiLejKiE1EuAx8z-1
