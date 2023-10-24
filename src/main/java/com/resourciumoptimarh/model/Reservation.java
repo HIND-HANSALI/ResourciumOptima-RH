@@ -28,10 +28,16 @@ public class Reservation {
 
     public Reservation(){}
 
+
     public Reservation(Date dateDebut, Date dateFin, User user, Equipement equipement) {
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
         this.user = user;
+        this.equipement = equipement;
+    }
+    public Reservation(Date dateDebut, Date dateFin,Equipement equipement) {
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
         this.equipement = equipement;
     }
 
@@ -71,7 +77,19 @@ public class Reservation {
         return equipement;
     }
 
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "id=" + id +
+                ", dateDebut=" + dateDebut +
+                ", dateFin=" + dateFin +
+                ", user=" + user +
+                ", equipement=" + equipement +
+                '}';
+    }
+
     public void setEquipement(Equipement equipement) {
         this.equipement = equipement;
     }
+
 }
