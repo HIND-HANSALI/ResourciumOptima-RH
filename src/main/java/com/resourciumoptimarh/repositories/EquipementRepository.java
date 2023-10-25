@@ -36,7 +36,9 @@ public class EquipementRepository {
     public List<Equipement> getAll() {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
+            //System.out.println(entityManager.createQuery("SELECT e FROM Equipement e", Equipement.class).getResultList());
             return entityManager.createQuery("SELECT e FROM Equipement e", Equipement.class).getResultList();
+
         } finally {
             entityManager.close();
         }

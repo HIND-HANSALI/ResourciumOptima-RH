@@ -27,19 +27,11 @@ public class Equipement {
     @Temporal(TemporalType.DATE)
     @Column(name = "date_maintenance")
     private Date dateMaintenance;
-
     @Enumerated(EnumType.STRING)
     private Etat etat;
 
-
     // Constructors
     public Equipement() {}
-    public Equipement(String nom, String type, Date dateAchat,Date dateMaintenance){
-        this.nom = nom;
-        this.type = type;
-        this.dateAchat = dateAchat;
-        this.dateMaintenance = dateMaintenance;
-    }
 
     public Equipement(String nom, String type, Date dateAchat, Date dateMaintenance, Etat etat) {
         this.nom = nom;
@@ -48,7 +40,12 @@ public class Equipement {
         this.dateMaintenance = dateMaintenance;
         this.etat = etat;
     }
-
+    public Equipement(String nom, String type, Date dateAchat,Date dateMaintenance){
+        this.nom = nom;
+        this.type = type;
+        this.dateAchat = dateAchat;
+        this.dateMaintenance = dateMaintenance;
+    }
     // Getter and Setter methods
     public int getId() {
         return id;
